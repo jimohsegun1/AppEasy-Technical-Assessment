@@ -1,0 +1,142 @@
+[
+  {
+    "title": "Frontend Developer Intern",
+    "company": "TechNova",
+    "link": "https://technova.io/careers/frontend",
+    "status": "Interviewing",
+    "id": "1a43c3f8-71b2-4bfc-a845-6f463a21f203"
+  },
+  {
+    "title": "Backend Developer Intern",
+    "company": "Cloudbase",
+    "link": "https://cloudbase.dev/jobs/backend",
+    "status": "Interviewing",
+    "id": "13d1e4cb-f931-4c76-b0a2-e20388c3d2b6"
+  },
+  {
+    "title": "Product Management Intern",
+    "company": "Innovix",
+    "link": "https://innovix.io/careers",
+    "status": "Rejected",
+    "id": "e23e48cb-b59f-4fcb-8429-68e5f9f6b3e9"
+  },
+  {
+    "title": "Software Engineering Intern",
+    "company": "BrightEdge",
+    "link": "https://brightedge.com/internships",
+    "status": "Offer",
+    "id": "b8f6f6f2-20e9-47a0-b3d7-e3cbfc9b2a2d"
+  },
+  {
+    "title": "DevOps Intern",
+    "company": "Kinetix Labs",
+    "link": "https://kinetixlabs.com/careers/devops",
+    "status": "Applied",
+    "id": "0b58eec0-94f3-46d6-a110-b58f3dfd435f"
+  },
+  {
+    "title": "AI Research Intern",
+    "company": "NeuralNetics",
+    "link": "https://neuralnetics.ai/jobs",
+    "status": "Applied",
+    "id": "c1051bc5-7b91-4fc9-94c7-c8fefaf302bd"
+  },
+  {
+    "title": "QA Tester Intern",
+    "company": "Testify",
+    "link": "https://testifyqa.io/apply",
+    "status": "Interviewing",
+    "id": "28a037f6-3c7e-4a18-b5f5-3b8dc67b5919"
+  },
+  {
+    "title": "UI/UX Design Intern",
+    "company": "DesignNest",
+    "link": "https://designnest.co/internships/uiux",
+    "status": "Rejected",
+    "id": "5bc4abcf-65a7-49d7-826b-5d50242b3f1c"
+  },
+  {
+    "title": "Machine Learning Intern",
+    "company": "AlphaMind",
+    "link": "https://alphamind.ml/careers",
+    "status": "Applied",
+    "id": "3fc2a740-9c13-4fcd-842e-d0a4ef7b5f7b"
+  },
+  {
+    "title": "Mobile App Developer Intern",
+    "company": "AppSmith",
+    "link": "https://appsmith.dev/internships",
+    "status": "Offer",
+    "id": "d3a94f1f-fc53-4ec4-aaa1-2b0ef6a11b6d"
+  },
+  {
+    "title": "Full Stack Developer Intern",
+    "company": "StackLabs",
+    "link": "https://stacklabs.tech/jobs",
+    "status": "Applied",
+    "id": "99c45627-25a1-493e-81c4-78d3cfb3f06c"
+  },
+  {
+    "title": "Cybersecurity Intern",
+    "company": "SecureWave",
+    "link": "https://securewave.io/careers",
+    "status": "Interviewing",
+    "id": "eccf96e3-e4fd-42e0-8a32-7be515d21db6"
+  },
+  {
+    "title": "Game Developer Intern",
+    "company": "PixelForge",
+    "link": "https://pixelforge.games/joinus",
+    "status": "Rejected",
+    "id": "96bc8e85-6e61-4345-b010-1a0cd64661d3"
+  },
+  {
+    "title": "Blockchain Developer Intern",
+    "company": "ChainSpark",
+    "link": "https://chainspark.org/interns",
+    "status": "Applied",
+    "id": "ac2bcf2f-9379-4db0-92a3-4d6a6e061ec0"
+  },
+  {
+    "title": "Technical Writer Intern",
+    "company": "DocuMentor",
+    "link": "https://documentor.dev/jobs",
+    "status": "Interviewing",
+    "id": "ef1b5052-c164-4e9d-b2be-509dbce6ae03"
+  },
+  {
+    "title": "Data Analytics Intern",
+    "company": "Medarri",
+    "link": "https://react-portfolio-website-ecru.vercel.app/",
+    "status": "Applied",
+    "id": "aa8c2dd2-9d50-4e6e-ac4c-0ed86a262412"
+  },
+  {
+    "title": "Cloud Engineering Intern",
+    "company": "NimbusTech",
+    "link": "https://nimbustech.io/intern",
+    "status": "Rejected",
+    "id": "2f89f2f1-9e93-437e-97fc-e2df46f1497b"
+  },
+  {
+    "title": "Web3 Developer Intern",
+    "company": "MetaGrid",
+    "link": "https://metagrid.xyz/careers",
+    "status": "Offer",
+    "id": "fe78380b-56e5-44b0-803d-91c1e2b24d23"
+  },
+  {
+    "title": "Data Visualization Intern",
+    "company": "Vizly",
+    "link": "https://vizlydata.com/apply",
+    "status": "Applied",
+    "id": "88f03212-f9a1-49a6-9c15-bdf6886a0a8b"
+  },
+  {
+    "title": "Tech Support Intern",
+    "company": "FixItPro",
+    "link": "https://fixitpro.tools/internship",
+    "status": "Applied",
+    "id": "ee94c9f3-8d0d-4a59-8593-9b802b37f206"
+  }
+]
