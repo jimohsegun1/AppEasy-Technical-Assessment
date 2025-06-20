@@ -2,9 +2,10 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { deleteJob, getJobs } from '../lib/api';
+import { Job } from '../types';
 
 export default function JobTable() {
-  const [jobs, setJobs] = useState<any[]>([]);
+  const [jobs, setJobs] = useState<Job[]>([]);
 
   const fetchJobs = async () => {
     const res = await getJobs();
@@ -65,10 +66,7 @@ export default function JobTable() {
             </thead>
             <tbody>
               {jobs.map((job) => (
-                <tr
-                  key={job.id}
-                  className="border-t hover:bg-gray-50 transition duration-150"
-                >
+                <tr key={job.id} className="border-t hover:bg-gray-50 transition duration-150">
                   <td className="px-6 py-4 font-medium text-gray-400">{job.title}</td>
                   <td className="px-6 py-4 text-gray-400">{job.company}</td>
                   <td className="px-6 py-4">
@@ -97,3 +95,4 @@ export default function JobTable() {
     </div>
   );
 }
+

@@ -138,5 +138,12 @@
     "link": "https://fixitpro.tools/internship",
     "status": "Applied",
     "id": "ee94c9f3-8d0d-4a59-8593-9b802b37f206"
+  },
+  {
+    "title": "software dev",
+    "company": "Technova",
+    "link": "https://technova.io/careers/frontend",
+    "status": "Interviewing",
+    "id": "2cf64f6c-1f95-4ede-9b73-8e702b3ac933"
   }
 ]
