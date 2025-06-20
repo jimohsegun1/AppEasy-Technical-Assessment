@@ -1,15 +1,18 @@
 'use client';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { deleteJob, getJobs } from '../lib/api';
-import { Job } from '../types';
+import { deleteJob, getJobs, Job } from '../lib/api';
 
 export default function JobTable() {
   const [jobs, setJobs] = useState<Job[]>([]);
 
   const fetchJobs = async () => {
-    const res = await getJobs();
-    setJobs(res.data);
+    try {
+      const res = await getJobs();
+      setJobs(res.data);
+    } catch (error) {
+      console.error('Failed to fetch jobs:', error);
+    }
   };
 
   useEffect(() => {
@@ -17,11 +20,15 @@ export default function JobTable() {
   }, []);
 
   const handleDelete = async (id: string) => {
-    await deleteJob(id);
-    fetchJobs();
+    try {
+      await deleteJob(id);
+      fetchJobs();
+    } catch (error) {
+      console.error('Failed to delete job:', error);
+    }
   };
 
-  const getStatusBadge = (status: string) => {
+  const getStatusBadge = (status: Job['status']) => {
     const base = 'px-2 py-1 text-xs font-semibold rounded-full';
     switch (status) {
       case 'Applied':
@@ -95,4 +102,3 @@ export default function JobTable() {
     </div>
   );
 }
-
