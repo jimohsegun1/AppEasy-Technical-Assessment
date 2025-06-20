@@ -88,7 +88,7 @@ export default function JobTable() {
                     </Link>
                     <button
                       onClick={() => handleDelete(job.id)}
-                      className="text-red-500 hover:text-red-700 transition"
+                      className="text-red-500 hover:text-red-700 transition cursor-pointer"
                     >
                       Delete
                     </button>

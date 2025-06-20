@@ -1,4 +1,4 @@
-import axios from 'axios';
+// lib/api.ts
 
 export interface Job {
   id: string;
@@ -8,15 +8,33 @@ export interface Job {
   status: string;
 }
 
-const API_URL = '/api/jobs';
+const STORAGE_KEY = 'job-tracker-data';
 
-export const getJobs = (): Promise<{ data: Job[] }> => axios.get(API_URL);
+export const getJobs = async (): Promise<{ data: Job[] }> => {
+  if (typeof window === 'undefined') return { data: [] };
+  const stored = localStorage.getItem(STORAGE_KEY);
+  const jobs = stored ? JSON.parse(stored) : [];
+  return { data: jobs };
+};
 
-export const addJob = (job: Omit<Job, 'id'>): Promise<{ data: Job }> =>
-  axios.post(API_URL, job);
+export const addJob = async (job: Omit<Job, 'id'>): Promise<{ data: Job }> => {
+  const { data: jobs } = await getJobs();
+  const newJob: Job = { ...job, id: crypto.randomUUID() };
+  const updated = [...jobs, newJob];
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+  return { data: newJob };
+};
 
-export const updateJob = (id: string, job: Job): Promise<{ data: Job }> =>
-  axios.put(`${API_URL}/${id}`, job);
+export const updateJob = async (id: string, job: Job): Promise<{ data: Job }> => {
+  const { data: jobs } = await getJobs();
+  const updated = jobs.map((j) => (j.id === id ? job : j));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+  return { data: job };
+};
 
-export const deleteJob = (id: string): Promise<{ data: { message: string } }> =>
-  axios.delete(`${API_URL}/${id}`);
+export const deleteJob = async (id: string): Promise<{ data: { message: string } }> => {
+  const { data: jobs } = await getJobs();
+  const filtered = jobs.filter((j) => j.id !== id);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(filtered));
+  return { data: { message: 'Deleted' } };
+};

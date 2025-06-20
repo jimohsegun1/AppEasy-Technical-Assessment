@@ -1,28 +1,23 @@
-import path from 'path';
-import fs from 'fs/promises';
-import JobForm from '../../../components/JobForm';
+"use client";
+import { useEffect, useState } from "react";
+import JobForm from "../../../components/JobForm";
+import { Job, getJobs } from "../../../lib/api";
+import { useParams } from "next/navigation";
 
-interface Job {
-  id: string;
-  title: string;
-  company: string;
-  link: string;
-  status: string;
-}
+export default function EditJobPage() {
+  const params = useParams();
+  const id = params?.id as string;
 
-interface PageProps {
-  params: Promise<{ id: string }>; // 👈 key change
-}
+  const [job, setJob] = useState<Job | null>(null);
 
-// Tell Next.js not to prerender this page
-export const dynamic = 'force-dynamic';
-
-export default async function EditJobPage({ params }: PageProps) {
-  const { id } = await params; // ✅ Await the params before using
-  const filePath = path.join(process.cwd(), 'data', 'jobs.json');
-  const data = await fs.readFile(filePath, 'utf-8');
-  const jobs: Job[] = JSON.parse(data);
-  const job = jobs.find((j) => j.id === id);
+  useEffect(() => {
+    const loadJob = async () => {
+      const { data } = await getJobs();
+      const found = data.find((j) => j.id === id);
+      setJob(found ?? null);
+    };
+    loadJob();
+  }, [id]);
 
   if (!job) {
     return <div className="p-4 text-red-500">Job not found.</div>;
