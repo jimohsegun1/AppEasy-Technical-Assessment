@@ -1,5 +1,3 @@
-// lib/api.ts
-
 export interface Job {
   id: string;
   title: string;

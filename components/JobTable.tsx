@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { deleteJob, getJobs, Job } from '../lib/api';
+import toast from 'react-hot-toast';
 
 export default function JobTable() {
   const [jobs, setJobs] = useState<Job[]>([]);
@@ -22,8 +23,10 @@ export default function JobTable() {
   const handleDelete = async (id: string) => {
     try {
       await deleteJob(id);
+      toast.success('Job deleted!');
       fetchJobs();
     } catch (error) {
+      toast.error('Failed to delete job.');
       console.error('Failed to delete job:', error);
     }
   };

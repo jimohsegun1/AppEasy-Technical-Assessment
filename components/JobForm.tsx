@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { addJob, updateJob, Job } from "../lib/api";
+import toast from 'react-hot-toast';
+
 
 export default function JobForm({ initialData }: { initialData?: Job }) {
   const [job, setJob] = useState<Job>(() => {
@@ -28,9 +30,11 @@ export default function JobForm({ initialData }: { initialData?: Job }) {
     e.preventDefault();
     if (job.id && initialData) {
       await updateJob(job.id, job);
+      toast.success('Job updated successfully!');
     } else {
       const { ...jobWithoutId } = job;
       await addJob(jobWithoutId);
+      toast.success('Job added successfully!');
     }
 
     router.push("/");

@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 import JobTable from '../components/JobTable';
 import AnalyzeJob from '../components/AnalyzeJob';
-import jobSeed from '../data/jobs.json'; // 💡 Make sure this import works
+import jobSeed from '../data/jobs.json'; 
 import { getJobs } from '../lib/api';
 
 export default function HomePage() {
