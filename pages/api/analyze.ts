@@ -1,6 +1,11 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import OpenAI from 'openai';
 
+type AnalyzeResponse = {
+  result: string;
+  mocked: boolean;
+};
+
 const tryAnalyze = async (apiKey: string, description: string): Promise<string | null> => {
   const openai = new OpenAI({ apiKey });
 
@@ -17,23 +22,24 @@ const tryAnalyze = async (apiKey: string, description: string): Promise<string |
     });
 
     return completion.choices[0]?.message.content ?? null;
-  } catch (error: any) {
-    console.warn(`❌ Failed with key ${apiKey.slice(0, 8)}...: ${error?.message}`);
+  } catch (error: unknown) {
+    const err = error as Error;
+    console.warn(`❌ Failed with key ${apiKey.slice(0, 8)}...: ${err.message}`);
     return null;
   }
 };
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<AnalyzeResponse>) {
   const { description } = req.body;
 
   const keys = [
     process.env.OPENAI_API_KEY_PRIMARY,
     process.env.OPENAI_API_KEY_SECONDARY,
-  ].filter(Boolean);
+  ].filter(Boolean) as string[];
 
   let result: string | null = null;
   for (const key of keys) {
-    result = await tryAnalyze(key!, description);
+    result = await tryAnalyze(key, description);
     if (result) break;
   }
 
